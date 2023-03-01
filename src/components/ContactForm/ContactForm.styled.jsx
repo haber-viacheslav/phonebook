@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { Form, Field, ErrorMessage } from 'formik';
 export const FormWrap = styled(Form)`
   width: 500px;
