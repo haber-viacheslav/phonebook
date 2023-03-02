@@ -5,7 +5,7 @@ import {
   ContactName,
   ContactPhone,
 } from './ContactItem.styled';
-import { deleteContact } from 'redux/contactService';
+import { deleteContact } from 'redux/contacts/contactService';
 import { useDispatch } from 'react-redux';
 
 const ContactItem = ({ contact: { name, phone, id } }) => {

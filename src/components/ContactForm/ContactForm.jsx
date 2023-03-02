@@ -1,7 +1,5 @@
 import { Formik } from 'formik';
-import { string, object } from 'yup';
-import 'yup-phone';
-import { addContact } from 'redux/contactService';
+import { addContact } from 'redux/contacts/contactService';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import {
@@ -12,19 +10,15 @@ import {
   FormInputWrp,
   FormButton,
 } from './ContactForm.styled';
-import { selectContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/contacts/ selectors';
 import { checkContact, checkPhone } from 'components/helpers/formCheckers';
+import { contactYupSchema } from 'components/helpers/yupValidation';
 
 // Initial values for formik
 const initialValues = {
   name: '',
   phone: '',
 };
-// Yup schema
-const schema = object().shape({
-  name: string().trim().strict().required(),
-  phone: string().phone('UA').required(),
-});
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -45,7 +39,7 @@ const ContactForm = () => {
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={schema}
+      validationSchema={contactYupSchema}
       onSubmit={handleSubmit}
     >
       <FormWrap autoComplete="off">
