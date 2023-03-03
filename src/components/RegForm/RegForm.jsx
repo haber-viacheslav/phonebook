@@ -63,7 +63,7 @@ export const RegForm = () => {
                     helperText={<ErrorMessage name="email" />}
                     error={props.errors.email && props.touched.email}
                   />
-
+                  {/* Password */}
                   <Field
                     as={TextField}
                     label="Password"
@@ -75,7 +75,7 @@ export const RegForm = () => {
                     helperText={<ErrorMessage name="password" />}
                     error={props.errors.password && props.touched.password}
                   />
-
+                  {/* Confirm Password */}
                   <Field
                     as={TextField}
                     label="Confirm Password"
@@ -90,7 +90,6 @@ export const RegForm = () => {
                       props.touched.confirmPassword
                     }
                   />
-
                   <Button
                     variant="contained"
                     type="submit"

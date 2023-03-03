@@ -1,0 +1,96 @@
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Paper,
+  TextField,
+  Typography,
+} from '@mui/material';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { contactYupSchema } from 'components/helpers/yupValidation';
+import { useDispatch } from 'react-redux';
+import { changeContact } from 'redux/contacts/contactService';
+import { PropTypes } from 'prop-types';
+export const EditForm = ({ data, onClose }) => {
+  const { id, name, number } = data;
+  const initialValue = {
+    name: name,
+    number: number,
+  };
+  console.log('id', id);
+  console.log('name and', { name, number });
+
+  const dispatch = useDispatch();
+  const handleChangeContact = (data, props) => {
+    dispatch(changeContact(id, { name, number }));
+    onClose();
+    props.resetForm();
+  };
+
+  return (
+    <Container>
+      <Grid container sx={{ justifyContent: 'center' }}>
+        <Paper>
+          <Box p={5}>
+            <Typography variant="h5">Edit contact</Typography>
+            <Formik
+              initialValues={initialValue}
+              validationSchema={contactYupSchema}
+              onSubmit={handleChangeContact}
+            >
+              {props => {
+                return (
+                  <Form>
+                    {/* Name */}
+                    <Field
+                      as={TextField}
+                      label="name"
+                      type="text"
+                      name="name"
+                      fullWidth
+                      variant="outlined"
+                      margin="dense"
+                      helperText={<ErrorMessage name="name" />}
+                      error={props.errors.email && props.touched.email}
+                    />
+                    {/* Phone Number */}
+                    <Field
+                      as={TextField}
+                      label="number"
+                      name="number"
+                      type="tel"
+                      fullWidth
+                      variant="outlined"
+                      margin="dense"
+                      helperText={<ErrorMessage name="number" />}
+                      error={props.errors.password && props.touched.password}
+                    />
+
+                    <Button
+                      sx={{ textAlign: 'center' }}
+                      variant="contained"
+                      type="submit"
+                      color="primary"
+                    >
+                      Submit
+                    </Button>
+                  </Form>
+                );
+              }}
+            </Formik>
+          </Box>
+        </Paper>
+      </Grid>
+    </Container>
+  );
+};
+
+EditForm.propTypes = {
+  data: PropTypes.shape({
+    name: PropTypes.string,
+    number: PropTypes.string,
+    id: PropTypes.string,
+  }).isRequired,
+  onClose: PropTypes.func.isRequired,
+};
