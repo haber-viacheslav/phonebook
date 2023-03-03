@@ -2,7 +2,6 @@ import { Box } from '@mui/material';
 import { useAuth } from 'hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { userLogout } from 'redux/auth/authService';
-// import { clearAuthHeader } from 'redux/auth/utility/authUtility';
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
@@ -17,16 +16,4 @@ export const UserMenu = () => {
   );
 };
 
-// export const UserMenu = () => {
-//   const dispatch = useDispatch();
-//   const { user } = useAuth();
 
-//   return (
-//     <div>
-//       <p>Welcome, {user.name}</p>
-//       <button type="button" onClick={() => dispatch(clearAuthHeader())}>
-//         Logout
-//       </button>
-//     </div>
-//   );
-// };
