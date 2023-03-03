@@ -1,8 +1,8 @@
-import { Button, Box } from '@mui/material';
+import { Box } from '@mui/material';
 import { useAuth } from 'hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { userLogout } from 'redux/auth/authService';
-import { clearAuthHeader } from 'redux/auth/utility/authUtility';
+// import { clearAuthHeader } from 'redux/auth/utility/authUtility';
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();

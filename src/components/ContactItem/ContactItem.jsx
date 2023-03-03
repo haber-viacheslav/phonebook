@@ -5,14 +5,16 @@ import {
   ContactName,
   ContactPhone,
 } from './ContactItem.styled';
-import { changeContact, deleteContact } from 'redux/contacts/contactService';
+import { deleteContact } from 'redux/contacts/contactService';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { Modal } from '@mui/material';
+import { Modal } from '../MainModal/Modal';
 import { EditForm } from 'components/EditForm/EditForm';
 
 const ContactItem = ({ contact: { name, number, id } }) => {
   const actualFields = { name, number, id };
+  console.log('actual fields', actualFields);
+
   const [isOpen, setIsOpen] = useState(false);
   const handleToggleIsOpen = () => setIsOpen(!isOpen);
   const dispatch = useDispatch();
@@ -32,8 +34,8 @@ const ContactItem = ({ contact: { name, number, id } }) => {
         </button>
       </ContactItemWrp>
       {isOpen && (
-        <Modal data={actualFields} onClick={handleToggleIsOpen}>
-          <EditForm />
+        <Modal onClick={handleToggleIsOpen}>
+          <EditForm onClose={handleToggleIsOpen} data={actualFields} />
         </Modal>
       )}
     </>

@@ -1,15 +1,8 @@
-import { Formik } from 'formik';
+import { Box, Button, Grid, Paper, TextField, Typography } from '@mui/material';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { addContact } from 'redux/contacts/contactService';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import {
-  FormWrap,
-  FormErrorMessage,
-  FormInput,
-  FormLabel,
-  FormInputWrp,
-  FormButton,
-} from './ContactForm.styled';
 import { selectContacts } from 'redux/contacts/selectors';
 import { checkContact, checkPhone } from 'components/helpers/formCheckers';
 import { contactYupSchema } from 'components/helpers/yupValidation';
@@ -37,28 +30,90 @@ const ContactForm = () => {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={contactYupSchema}
-      onSubmit={handleSubmit}
-    >
-      <FormWrap autoComplete="off">
-        <FormInputWrp htmlFor="name">
-          <FormLabel>Name</FormLabel>
-          <FormInput type="text" name="name" />
-          <FormErrorMessage name="name" component="div" />
-        </FormInputWrp>
+    <Grid container sx={{ justifyContent: 'center' }}>
+      <Paper>
+        <Box p={5}>
+          <Typography variant="h5">Add contact</Typography>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={contactYupSchema}
+            onSubmit={handleSubmit}
+          >
+            {props => {
+              return (
+                <Form>
+                  {/* Name */}
+                  <Field
+                    as={TextField}
+                    label="name"
+                    type="text"
+                    name="name"
+                    fullWidth
+                    variant="outlined"
+                    margin="dense"
+                    helperText={<ErrorMessage name="name" />}
+                    error={props.errors.email && props.touched.email}
+                  />
+                  {/* Phone Number */}
+                  <Field
+                    as={TextField}
+                    label="number"
+                    name="number"
+                    type="tel"
+                    fullWidth
+                    variant="outlined"
+                    margin="dense"
+                    helperText={<ErrorMessage name="number" />}
+                    error={props.errors.password && props.touched.password}
+                  />
 
-        <FormInputWrp htmlFor="number">
-          <FormLabel>Phone</FormLabel>
-          <FormInput type="tel" name="number" />
-          <FormErrorMessage name="number" component="div" />
-        </FormInputWrp>
-
-        <FormButton type="submit">Add contact</FormButton>
-      </FormWrap>
-    </Formik>
+                  <Button
+                    sx={{ textAlign: 'center' }}
+                    variant="contained"
+                    type="submit"
+                    color="primary"
+                  >
+                    Submit
+                  </Button>
+                </Form>
+              );
+            }}
+          </Formik>
+        </Box>
+      </Paper>
+    </Grid>
   );
 };
 
 export default ContactForm;
+
+// import {
+//   FormWrap,
+//   FormErrorMessage,
+//   FormInput,
+//   FormLabel,
+//   FormInputWrp,
+//   FormButton,
+// } from './ContactForm.styled';
+
+// <Formik
+//   initialValues={initialValues}
+//   validationSchema={contactYupSchema}
+//   onSubmit={handleSubmit}
+// >
+//   <FormWrap autoComplete="off">
+//     <FormInputWrp htmlFor="name">
+//       <FormLabel>Name</FormLabel>
+//       <FormInput type="text" name="name" />
+//       <FormErrorMessage name="name" component="div" />
+//     </FormInputWrp>
+
+//     <FormInputWrp htmlFor="number">
+//       <FormLabel>Phone</FormLabel>
+//       <FormInput type="tel" name="number" />
+//       <FormErrorMessage name="number" component="div" />
+//     </FormInputWrp>
+
+//     <FormButton type="submit">Add contact</FormButton>
+//   </FormWrap>
+// </Formik>;
