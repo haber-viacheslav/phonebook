@@ -1,8 +1,13 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { toast } from 'react-hot-toast';
-import { fetchContacts, addContact, deleteContact } from './contactService';
+import {
+  fetchContacts,
+  addContact,
+  deleteContact,
+  changeContact,
+} from './contactService';
 
-const extraActions = [fetchContacts, addContact, deleteContact];
+const extraActions = [fetchContacts, addContact, deleteContact, changeContact];
 const getActions = type => extraActions.map(action => action[type]);
 
 const contactsSlice = createSlice({
@@ -49,6 +54,12 @@ const contactsSlice = createSlice({
             color: '#fff',
           },
         });
+      })
+      .addCase(changeContact.fulfilled, (state, action) => {
+        const index = state.items.findIndex(
+          item => item.id === action.payload.id
+        );
+        state.items.splice(index, 1, action.payload);
       })
       .addMatcher(isAnyOf(...getActions('pending')), state => {
         state.isLoading = true;

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { FilterWrp, FilterInput } from './Filter.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFilterValue } from 'redux/selectors';
-import { setFilterValue } from 'redux/filterSlice';
+import { selectFilterValue } from 'redux/contacts/selectors';
+import { setFilterValue } from 'redux/contacts/filterSlice';
 const Filter = () => {
   const dispatch = useDispatch();
   const filterValue = useSelector(selectFilterValue);

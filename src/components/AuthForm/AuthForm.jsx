@@ -1,26 +1,17 @@
-import {
-  Box,
-  Button,
-  Grid,
-  Paper,
-  TextField,
-  Typography,
-} from '@material-ui/core';
+import { Box, Button, Grid, Paper, TextField, Typography } from '@mui/material';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import { yupValidation } from 'components/helpers/yupValidation';
+import { yupLoginValidation } from 'components/helpers/yupValidation';
+import { useDispatch } from 'react-redux';
+import { userLogin } from 'redux/auth/authService';
 
 export const AuthForm = () => {
   const initialValue = {
-    name: '',
     email: '',
     password: '',
-    confirmPassword: '',
   };
-
+  const dispatch = useDispatch();
   const handleSubmit = (values, props) => {
-    console.log(values);
-    console.log(JSON.stringify(values));
-
+    dispatch(userLogin(values));
     props.resetForm();
   };
 
@@ -33,27 +24,12 @@ export const AuthForm = () => {
             <Typography variant="h5">Login</Typography>
             <Formik
               initialValues={initialValue}
-              validationSchema={yupValidation}
+              validationSchema={yupLoginValidation}
               onSubmit={handleSubmit}
             >
               {props => {
-                const { name } = props.values;
                 return (
                   <Form>
-                    {/* Name */}
-                    <TextField
-                      label="Name"
-                      name="name"
-                      fullWidth
-                      variant="outlined"
-                      margin="dense"
-                      value={name}
-                      onChange={props.handleChange}
-                      onBlur={props.handleBlur}
-                      helperText={<ErrorMessage name="name" />}
-                      error={props.errors.name && props.touched.name}
-                      required
-                    />
                     {/* Email */}
                     <Field
                       as={TextField}
@@ -79,27 +55,7 @@ export const AuthForm = () => {
                       error={props.errors.password && props.touched.password}
                     />
 
-                    <Field
-                      as={TextField}
-                      label="Confirm Password"
-                      name="confirmPassword"
-                      type="password"
-                      fullWidth
-                      variant="outlined"
-                      margin="dense"
-                      helperText={<ErrorMessage name="confirmPassword" />}
-                      error={
-                        props.errors.confirmPassword &&
-                        props.touched.confirmPassword
-                      }
-                    />
-
-                    <Button
-                      variant="contained"
-                      type="submit"
-                      color="primary"
-                      fullWidth
-                    >
+                    <Button variant="contained" type="submit" color="primary">
                       Submit
                     </Button>
                   </Form>

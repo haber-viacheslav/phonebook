@@ -10,14 +10,14 @@ import {
   FormInputWrp,
   FormButton,
 } from './ContactForm.styled';
-import { selectContacts } from 'redux/contacts/ selectors';
+import { selectContacts } from 'redux/contacts/selectors';
 import { checkContact, checkPhone } from 'components/helpers/formCheckers';
 import { contactYupSchema } from 'components/helpers/yupValidation';
 
 // Initial values for formik
 const initialValues = {
   name: '',
-  phone: '',
+  number: '',
 };
 
 const ContactForm = () => {
@@ -29,7 +29,7 @@ const ContactForm = () => {
       return;
     }
     if (checkPhone(contacts, values)) {
-      alert(`${values.phone} is already in contacts`);
+      alert(`${values.number} is already in contacts`);
       return;
     }
     dispatch(addContact(values));
@@ -49,10 +49,10 @@ const ContactForm = () => {
           <FormErrorMessage name="name" component="div" />
         </FormInputWrp>
 
-        <FormInputWrp htmlFor="phone">
+        <FormInputWrp htmlFor="number">
           <FormLabel>Phone</FormLabel>
-          <FormInput type="tel" name="phone" />
-          <FormErrorMessage name="phone" component="div" />
+          <FormInput type="tel" name="number" />
+          <FormErrorMessage name="number" component="div" />
         </FormInputWrp>
 
         <FormButton type="submit">Add contact</FormButton>

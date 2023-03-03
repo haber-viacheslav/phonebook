@@ -1,6 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 export const theme = createTheme({
   palette: {
+    mode: 'dark',
     primary: {
       main: '#121858',
       second: '#1a237e',
@@ -10,6 +11,15 @@ export const theme = createTheme({
       main: '#1c54b2',
       second: '#2979ff',
       third: '#5393ff',
+    },
+  },
+  breakpoints: {
+    values: {
+      xs: 320,
+      sm: 768,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
     },
   },
 });
