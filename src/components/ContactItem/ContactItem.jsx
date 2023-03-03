@@ -9,13 +9,15 @@ import { changeContact, deleteContact } from 'redux/contacts/contactService';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { Modal } from '@mui/material';
+import { EditForm } from 'components/EditForm/EditForm';
 
 const ContactItem = ({ contact: { name, number, id } }) => {
+  const actualFields = { name, number, id };
   const [isOpen, setIsOpen] = useState(false);
   const handleToggleIsOpen = () => setIsOpen(!isOpen);
   const dispatch = useDispatch();
   const handleDeleteContact = () => dispatch(deleteContact(id));
-  const handleChangeContact = () => dispatch(changeContact(id));
+
   return (
     <>
       <ContactItemWrp>
@@ -29,11 +31,11 @@ const ContactItem = ({ contact: { name, number, id } }) => {
           edit
         </button>
       </ContactItemWrp>
-      <Modal
-        onClose={handleToggleIsOpen}
-        handleChange={handleChangeContact}
-        open={isOpen}
-      />
+      {isOpen && (
+        <Modal data={actualFields} onClick={handleToggleIsOpen}>
+          <EditForm />
+        </Modal>
+      )}
     </>
   );
 };

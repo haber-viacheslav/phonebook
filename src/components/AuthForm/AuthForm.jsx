@@ -16,56 +16,57 @@ export const AuthForm = () => {
   };
 
   return (
-    <Grid container>
-      <Grid item sm={3} xs={false}></Grid>
-      <Grid item sm={6} xs={12}>
-        <Paper>
-          <Box m={5} p={3}>
-            <Typography variant="h5">Login</Typography>
-            <Formik
-              initialValues={initialValue}
-              validationSchema={yupLoginValidation}
-              onSubmit={handleSubmit}
-            >
-              {props => {
-                return (
-                  <Form>
-                    {/* Email */}
-                    <Field
-                      as={TextField}
-                      label="Email"
-                      type="Email"
-                      name="email"
-                      fullWidth
-                      variant="outlined"
-                      margin="dense"
-                      helperText={<ErrorMessage name="email" />}
-                      error={props.errors.email && props.touched.email}
-                    />
+    <Grid container sx={{ justifyContent: 'center' }}>
+      <Paper>
+        <Box p={5}>
+          <Typography variant="h5">Login</Typography>
+          <Formik
+            initialValues={initialValue}
+            validationSchema={yupLoginValidation}
+            onSubmit={handleSubmit}
+          >
+            {props => {
+              return (
+                <Form>
+                  {/* Email */}
+                  <Field
+                    as={TextField}
+                    label="Email"
+                    type="Email"
+                    name="email"
+                    fullWidth
+                    variant="outlined"
+                    margin="dense"
+                    helperText={<ErrorMessage name="email" />}
+                    error={props.errors.email && props.touched.email}
+                  />
 
-                    <Field
-                      as={TextField}
-                      label="Password"
-                      name="password"
-                      type="password"
-                      fullWidth
-                      variant="outlined"
-                      margin="dense"
-                      helperText={<ErrorMessage name="password" />}
-                      error={props.errors.password && props.touched.password}
-                    />
+                  <Field
+                    as={TextField}
+                    label="Password"
+                    name="password"
+                    type="password"
+                    fullWidth
+                    variant="outlined"
+                    margin="dense"
+                    helperText={<ErrorMessage name="password" />}
+                    error={props.errors.password && props.touched.password}
+                  />
 
-                    <Button variant="contained" type="submit" color="primary">
-                      Submit
-                    </Button>
-                  </Form>
-                );
-              }}
-            </Formik>
-          </Box>
-        </Paper>
-      </Grid>
-      <Grid item sm={3} xs={false}></Grid>
+                  <Button
+                    sx={{ textAlign: 'center' }}
+                    variant="contained"
+                    type="submit"
+                    color="primary"
+                  >
+                    Submit
+                  </Button>
+                </Form>
+              );
+            }}
+          </Formik>
+        </Box>
+      </Paper>
     </Grid>
   );
 };
