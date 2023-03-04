@@ -6,9 +6,8 @@ import {
   deleteContact,
   changeContact,
 } from './contactService';
-
-const extraActions = [fetchContacts, addContact, deleteContact, changeContact];
-const getActions = type => extraActions.map(action => action[type]);
+import { getActions } from 'components/helpers/getActions';
+import { contactsExtraActions } from 'components/helpers/constants/actionConstants';
 
 const contactsSlice = createSlice({
   name: 'contacts',
@@ -32,7 +31,7 @@ const contactsSlice = createSlice({
       })
       .addCase(addContact.fulfilled, (state, action) => {
         state.items.push(action.payload);
-        toast.success('Success', {
+        toast.success('Success 🖋', {
           duration: 1000,
           style: {
             borderRadius: '10px',
@@ -46,7 +45,7 @@ const contactsSlice = createSlice({
           item => item.id === action.payload.id
         );
         state.items.splice(index, 1);
-        toast.success('Success', {
+        toast.success('Success 🙄', {
           duration: 1000,
           style: {
             borderRadius: '10px',
@@ -55,40 +54,56 @@ const contactsSlice = createSlice({
           },
         });
       })
-      .addCase(changeContact.fulfilled, (state, action) => {
-        const index = state.items.findIndex(
-          item => item.id === action.payload.id
-        );
-
-        state.items.splice(index, 1, [...action.payload]);
-      })
-      .addMatcher(isAnyOf(...getActions('pending')), state => {
-        state.isLoading = true;
-        toast.loading('Waiting...', {
+      .addCase(
+        changeContact.fulfilled,
+        (state, action) => {
+          state.items.map(item => item !== action.payload);
+        },
+        toast.success('Success 👌', {
           duration: 1000,
           style: {
             borderRadius: '10px',
             background: '#333',
             color: '#fff',
           },
-        });
-      })
-      .addMatcher(isAnyOf(...getActions('rejected')), (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-        toast.error('This is an error!', {
-          duration: 1000,
-          style: {
-            borderRadius: '10px',
-            background: '#333',
-            color: '#fff',
-          },
-        });
-      })
-      .addMatcher(isAnyOf(...getActions('fulfilled')), state => {
-        state.isLoading = false;
-        state.error = null;
-      }),
+        })
+      )
+      .addMatcher(
+        isAnyOf(...getActions(contactsExtraActions, 'pending')),
+        state => {
+          state.isLoading = true;
+          toast.loading('Loading...☕', {
+            duration: 1000,
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+          });
+        }
+      )
+      .addMatcher(
+        isAnyOf(...getActions(contactsExtraActions, 'rejected')),
+        (state, action) => {
+          state.isLoading = false;
+          state.error = action.payload;
+          toast.error('Error! 😲 Try again later..', {
+            duration: 1000,
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+          });
+        }
+      )
+      .addMatcher(
+        isAnyOf(...getActions(contactsExtraActions, 'fulfilled')),
+        state => {
+          state.isLoading = false;
+          state.error = null;
+        }
+      ),
 });
 
 export const contactsReducer = contactsSlice.reducer;

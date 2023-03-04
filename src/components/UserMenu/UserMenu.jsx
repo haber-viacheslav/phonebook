@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { useAuth } from 'hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { userLogout } from 'redux/auth/authService';
@@ -58,9 +58,9 @@ export const UserMenu = () => {
         </StyledBadge>
       </Stack>
       <p>{user.name}</p>
-      <button type="button" onClick={handleLogOut}>
+      <Button type="button" onClick={handleLogOut}>
         Logout
-      </button>
+      </Button>
     </Box>
   );
 };

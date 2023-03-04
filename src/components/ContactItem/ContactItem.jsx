@@ -13,7 +13,6 @@ import { EditForm } from 'components/EditForm/EditForm';
 
 const ContactItem = ({ contact: { name, number, id } }) => {
   const actualFields = { name, number, id };
-  console.log('actual fields', actualFields);
 
   const [isOpen, setIsOpen] = useState(false);
   const handleToggleIsOpen = () => setIsOpen(!isOpen);

@@ -10,22 +10,21 @@ import {
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { contactYupSchema } from 'components/helpers/yupValidation';
 import { useDispatch } from 'react-redux';
-import { changeContact } from 'redux/contacts/contactService';
+import { changeContact, fetchContacts } from 'redux/contacts/contactService';
 import { PropTypes } from 'prop-types';
 export const EditForm = ({ data, onClose }) => {
-  const { id, name, number } = data;
+  const { name, number, id } = data;
   const initialValue = {
     name: name,
     number: number,
   };
-  console.log('id', id);
-  console.log('name and', { name, number });
 
   const dispatch = useDispatch();
   const handleChangeContact = (data, props) => {
-    dispatch(changeContact(id, { name, number }));
+    dispatch(changeContact({ id, data }));
     onClose();
     props.resetForm();
+    dispatch(fetchContacts());
   };
 
   return (
