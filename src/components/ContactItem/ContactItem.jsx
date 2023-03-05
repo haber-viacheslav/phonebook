@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import {
-  ContactItemButton,
   ContactItemWrp,
   ContactName,
   ContactPhone,
@@ -10,10 +9,12 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { Modal } from '../MainModal/Modal';
 import { EditForm } from 'components/EditForm/EditForm';
+import { IconButton, Tooltip, Box } from '@mui/material';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
 const ContactItem = ({ contact: { name, number, id } }) => {
   const actualFields = { name, number, id };
-
   const [isOpen, setIsOpen] = useState(false);
   const handleToggleIsOpen = () => setIsOpen(!isOpen);
   const dispatch = useDispatch();
@@ -25,12 +26,18 @@ const ContactItem = ({ contact: { name, number, id } }) => {
         <ContactName>
           {name}: <ContactPhone>{number}</ContactPhone>
         </ContactName>
-        <ContactItemButton type="button" onClick={handleDeleteContact}>
-          delete
-        </ContactItemButton>
-        <button type="button" onClick={handleToggleIsOpen}>
-          edit
-        </button>
+        <Box>
+          <Tooltip title="Edit">
+            <IconButton onClick={handleToggleIsOpen}>
+              <ModeEditIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Delete">
+            <IconButton onClick={handleDeleteContact}>
+              <DeleteForeverIcon />
+            </IconButton>
+          </Tooltip>
+        </Box>
       </ContactItemWrp>
       {isOpen && (
         <Modal onClick={handleToggleIsOpen}>

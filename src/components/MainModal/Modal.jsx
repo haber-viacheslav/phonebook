@@ -1,9 +1,7 @@
-import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { Overlay, ModalBody } from './ModalMain.styled';
 import { useEffect } from 'react';
-
-const modalRoot = document.querySelector('#modal-root');
+import Portal from '@mui/base/Portal';
 
 export const Modal = ({ onClick, children }) => {
   useEffect(() => {
@@ -23,11 +21,12 @@ export const Modal = ({ onClick, children }) => {
       onClick();
     }
   };
-  return createPortal(
-    <Overlay onClick={handleBackdropClick}>
-      <ModalBody>{children}</ModalBody>
-    </Overlay>,
-    modalRoot
+  return (
+    <Portal>
+      <Overlay onClick={handleBackdropClick}>
+        <ModalBody>{children}</ModalBody>
+      </Overlay>
+    </Portal>
   );
 };
 

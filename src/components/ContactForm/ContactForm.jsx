@@ -1,4 +1,12 @@
-import { Box, Button, Grid, Paper, TextField, Typography } from '@mui/material';
+import {
+  Box,
+  Container,
+  Button,
+  Grid,
+  Paper,
+  TextField,
+  Typography,
+} from '@mui/material';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { addContact } from 'redux/contacts/contactService';
 import { useDispatch } from 'react-redux';
@@ -13,7 +21,7 @@ const initialValues = {
   number: '',
 };
 
-const ContactForm = () => {
+const ContactForm = ({ onClose }) => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const handleSubmit = (values, { resetForm }) => {
@@ -27,61 +35,64 @@ const ContactForm = () => {
     }
     dispatch(addContact(values));
     resetForm();
+    onClose();
   };
 
   return (
-    <Grid container sx={{ justifyContent: 'center' }}>
-      <Paper>
-        <Box p={5}>
-          <Typography variant="h5">Add contact</Typography>
-          <Formik
-            initialValues={initialValues}
-            validationSchema={contactYupSchema}
-            onSubmit={handleSubmit}
-          >
-            {props => {
-              return (
-                <Form>
-                  {/* Name */}
-                  <Field
-                    as={TextField}
-                    label="name"
-                    type="text"
-                    name="name"
-                    fullWidth
-                    variant="outlined"
-                    margin="dense"
-                    helperText={<ErrorMessage name="name" />}
-                    error={props.errors.email && props.touched.email}
-                  />
-                  {/* Phone Number */}
-                  <Field
-                    as={TextField}
-                    label="number"
-                    name="number"
-                    type="tel"
-                    fullWidth
-                    variant="outlined"
-                    margin="dense"
-                    helperText={<ErrorMessage name="number" />}
-                    error={props.errors.password && props.touched.password}
-                  />
+    <Container>
+      <Grid container sx={{ justifyContent: 'center' }}>
+        <Paper>
+          <Box p={5}>
+            <Typography variant="h5">Add contact</Typography>
+            <Formik
+              initialValues={initialValues}
+              validationSchema={contactYupSchema}
+              onSubmit={handleSubmit}
+            >
+              {props => {
+                return (
+                  <Form>
+                    {/* Name */}
+                    <Field
+                      as={TextField}
+                      label="name"
+                      type="text"
+                      name="name"
+                      fullWidth
+                      variant="outlined"
+                      margin="dense"
+                      helperText={<ErrorMessage name="name" />}
+                      error={props.errors.email && props.touched.email}
+                    />
+                    {/* Phone Number */}
+                    <Field
+                      as={TextField}
+                      label="number"
+                      name="number"
+                      type="tel"
+                      fullWidth
+                      variant="outlined"
+                      margin="dense"
+                      helperText={<ErrorMessage name="number" />}
+                      error={props.errors.password && props.touched.password}
+                    />
 
-                  <Button
-                    sx={{ textAlign: 'center' }}
-                    variant="contained"
-                    type="submit"
-                    color="primary"
-                  >
-                    Submit
-                  </Button>
-                </Form>
-              );
-            }}
-          </Formik>
-        </Box>
-      </Paper>
-    </Grid>
+                    <Button
+                      sx={{ alignSelf: 'center' }}
+                      variant="contained"
+                      type="submit"
+                      color="primary"
+                    >
+                      Submit
+                    </Button>
+                  </Form>
+                );
+              }}
+            </Formik>
+          </Box>
+        </Paper>
+      </Grid>
+    </Container>
   );
 };
 

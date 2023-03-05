@@ -29,7 +29,7 @@ export const EditForm = ({ data, onClose }) => {
 
   return (
     <Container>
-      <Grid container sx={{ justifyContent: 'center' }}>
+      <Grid container sx={{ justifyContent: 'center', zIndex: 'modal' }}>
         <Paper>
           <Box p={5}>
             <Typography variant="h5">Edit contact</Typography>

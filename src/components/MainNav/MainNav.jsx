@@ -1,4 +1,4 @@
-import { MainNavMenu, StyledLink } from './MainNav.styled.js';
+import { MainNavMenu, StyledLink } from './MainNav.styled.jsx';
 import { useAuth } from 'hooks/useAuth.js';
 export const MainNav = () => {
   const { isLoggedIn } = useAuth();

@@ -1,64 +1,36 @@
-import { Box, Button } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import { useAuth } from 'hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { userLogout } from 'redux/auth/authService';
-import { styled } from '@mui/material/styles';
-import Badge from '@mui/material/Badge';
+import { StyledBadge } from './UserMenu.styled';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
-const StyledBadge = styled(Badge)(({ theme }) => ({
-  '& .MuiBadge-badge': {
-    backgroundColor: '#44b700',
-    color: '#44b700',
-    boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
-    '&::after': {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      borderRadius: '50%',
-      animation: 'ripple 1.2s infinite ease-in-out',
-      border: '1px solid currentColor',
-      content: '""',
-    },
-  },
-  '@keyframes ripple': {
-    '0%': {
-      transform: 'scale(.8)',
-      opacity: 1,
-    },
-    '100%': {
-      transform: 'scale(2.4)',
-      opacity: 0,
-    },
-  },
-}));
-
+import { getRandomColor } from 'components/helpers/getRandomColor';
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
   const handleLogOut = () => dispatch(userLogout());
-  const randomColor = function getRandomHexColor() {
-    return `#${Math.floor(Math.random() * 16777215)
-      .toString(16)
-      .padStart(6, 0)}`;
-  };
+
   return (
-    <Box sx={{ display: 'flex', gap: '10px' }}>
+    <Box sx={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
       <Stack direction="row" spacing={2}>
         <StyledBadge
           overlap="circular"
           anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
           variant="dot"
         >
-          <Avatar sx={{ bgcolor: randomColor() }}>
-            {user.name.slice(0, 2)}
+          <Avatar sx={{ bgcolor: getRandomColor() }}>
+            {user.name.slice(0, 2).toUpperCase()}
           </Avatar>
         </StyledBadge>
       </Stack>
-      <p>{user.name}</p>
-      <Button type="button" onClick={handleLogOut}>
+      <Typography
+        sx={{ fontWeight: 500, display: { xs: 'none', sm: 'block' } }}
+        variant="h3"
+      >
+        {user.name}
+      </Typography>
+      <Button variant="contained" type="button" onClick={handleLogOut}>
         Logout
       </Button>
     </Box>

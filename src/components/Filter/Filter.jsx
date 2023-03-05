@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
-import { FilterWrp, FilterInput } from './Filter.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFilterValue } from 'redux/contacts/selectors';
 import { setFilterValue } from 'redux/contacts/filterSlice';
+import { TextField } from '@mui/material';
+import { Box } from '@mui/system';
+
 const Filter = () => {
   const dispatch = useDispatch();
   const filterValue = useSelector(selectFilterValue);
@@ -12,17 +14,15 @@ const Filter = () => {
     dispatch(setFilterValue(value));
   };
   return (
-    <FilterWrp>
-      <label htmlFor="filter">Find contacts by name</label>
-
-      <FilterInput
-        name="filter"
+    <Box>
+      <TextField
         id="filter"
-        type="text"
+        label="Find contacts by name"
+        variant="standard"
         value={filterValue}
         onChange={changeFilter}
       />
-    </FilterWrp>
+    </Box>
   );
 };
 
