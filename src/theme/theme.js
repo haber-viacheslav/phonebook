@@ -1,13 +1,17 @@
 import { createTheme } from '@mui/material/styles';
 export const theme = createTheme({
   components: {
+    MuiUseMediaQuery: {
+      defaultProps: {
+        noSsr: true,
+      },
+    },
     MuiBox: {
       styleOverrides: {
         root: ({ ownerState }) => ({
           ...(ownerState.variant === 'contained' &&
             ownerState.color === 'primary' && {
               backgroundColor: theme.palette.background.default,
-              backDropFilter: 'blur(25px)',
               boxShadow: theme.palette.primary.main.third,
               color: '#fff',
             }),
@@ -20,7 +24,7 @@ export const theme = createTheme({
           ...(ownerState.variant === 'contained' &&
             ownerState.color === 'primary' && {
               backgroundColor: theme.palette.primary.main,
-              color: theme.palette.primary.second,
+              color: theme.palette.primary.main,
               padding: '6px 10px',
               outline: 'none',
               borderRadius: '10px',
@@ -54,56 +58,44 @@ export const theme = createTheme({
   typography: {
     h1: {
       fontSize: '2rem',
-      '@media (min-width:768px)': {
-        fontSize: '2.5rem',
-      },
+
       '@media (min-width:1200px)': {
-        fontSize: '3rem',
+        fontSize: '2.75rem',
       },
     },
     h2: {
       fontSize: '1.5rem',
-      '@media (min-width:768px)': {
-        fontSize: '1.75rem',
-      },
+
       '@media (min-width:1200px)': {
-        fontSize: '2.25rem',
+        fontSize: '2rem',
       },
     },
     h3: {
       fontSize: '1.2rem',
-      '@media (min-width:768px)': {
-        fontSize: '1.5rem',
-      },
+
       '@media (min-width:1200px)': {
-        fontSize: '2rem',
+        fontSize: '1.5rem',
       },
     },
     body1: {
       fontSize: '1.2rem',
-      '@media (min-width:768px)': {
-        fontSize: '1.5rem',
-      },
+
       '@media (min-width:1200px)': {
-        fontSize: '2rem',
+        fontSize: '1.5rem',
       },
     },
     button: {
       fontSize: '0.75rem',
-      '@media (min-width:768px)': {
-        fontSize: '1rem',
-      },
+
       '@media (min-width:1200px)': {
-        fontSize: '1.25rem',
+        fontSize: '1rem',
       },
     },
     subtitle1: {
       fontSize: '1.2rem',
-      '@media (min-width:768px)': {
-        fontSize: '1.5rem',
-      },
+
       '@media (min-width:1200px)': {
-        fontSize: '2rem',
+        fontSize: '1.5rem',
       },
     },
   },

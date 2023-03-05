@@ -5,12 +5,16 @@ import { AppBar } from 'components/AppBar/AppBar';
 import { Toaster } from 'react-hot-toast';
 import { Paper } from '@mui/material';
 import { AppFooter } from 'components/AppFooter/AppFooter';
+// import { Backdrop } from '@mui/material';
+import { Main } from './Layout.styled';
+// import { Loader } from 'components/Loader/Loader';
+
 export const Layout = () => {
   return (
     <Paper square>
       <AppBar />
       <Suspense fallback={null}>
-        <main>
+        <Main>
           <section>
             <Container
               sx={{
@@ -22,7 +26,7 @@ export const Layout = () => {
               <Outlet />
             </Container>
           </section>
-        </main>
+        </Main>
       </Suspense>
       <Toaster />
       <AppFooter />

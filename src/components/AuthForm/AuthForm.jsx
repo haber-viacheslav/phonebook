@@ -19,7 +19,7 @@ export const AuthForm = () => {
     <Grid container sx={{ justifyContent: 'center' }}>
       <Paper>
         <Box p={5}>
-          <Typography variant="h5">Login</Typography>
+          <Typography variant="h3">Login</Typography>
           <Formik
             initialValues={initialValue}
             validationSchema={yupLoginValidation}
@@ -30,6 +30,7 @@ export const AuthForm = () => {
                 <Form>
                   {/* Email */}
                   <Field
+                    size="small"
                     as={TextField}
                     label="Email"
                     type="Email"
@@ -42,6 +43,7 @@ export const AuthForm = () => {
                   />
 
                   <Field
+                    size="small"
                     as={TextField}
                     label="Password"
                     name="password"
@@ -53,12 +55,7 @@ export const AuthForm = () => {
                     error={props.errors.password && props.touched.password}
                   />
 
-                  <Button
-                    sx={{ textAlign: 'center' }}
-                    variant="contained"
-                    type="submit"
-                    color="primary"
-                  >
+                  <Button variant="contained" type="submit" color="primary">
                     Submit
                   </Button>
                 </Form>

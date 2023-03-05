@@ -16,11 +16,12 @@ const Filter = () => {
   return (
     <Box>
       <TextField
+        label={('margin="none"', 'Find contacts by name')}
         id="filter"
-        label="Find contacts by name"
         variant="standard"
         value={filterValue}
         onChange={changeFilter}
+        size="small"
       />
     </Box>
   );

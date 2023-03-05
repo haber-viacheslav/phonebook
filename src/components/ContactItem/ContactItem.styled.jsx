@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 
 export const ContactItemWrp = styled.div`
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   border-radius: 10px;
   font-size: 20px;
   padding: 10px 20px;

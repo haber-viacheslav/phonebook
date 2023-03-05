@@ -54,6 +54,7 @@ const ContactForm = ({ onClose }) => {
                   <Form>
                     {/* Name */}
                     <Field
+                      size="small"
                       as={TextField}
                       label="name"
                       type="text"
@@ -63,9 +64,11 @@ const ContactForm = ({ onClose }) => {
                       margin="dense"
                       helperText={<ErrorMessage name="name" />}
                       error={props.errors.email && props.touched.email}
+                      required
                     />
                     {/* Phone Number */}
                     <Field
+                      size="small"
                       as={TextField}
                       label="number"
                       name="number"
@@ -75,13 +78,14 @@ const ContactForm = ({ onClose }) => {
                       margin="dense"
                       helperText={<ErrorMessage name="number" />}
                       error={props.errors.password && props.touched.password}
+                      required
                     />
 
                     <Button
-                      sx={{ alignSelf: 'center' }}
                       variant="contained"
                       type="submit"
                       color="primary"
+                      fullWidth
                     >
                       Submit
                     </Button>

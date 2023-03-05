@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Paper, TextField, Typography } from '@mui/material';
+import { Box, Button, Paper, TextField, Grid, Typography } from '@mui/material';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { yupRegisterValidation } from 'components/helpers/yupValidation';
 import { useDispatch } from 'react-redux';
@@ -24,10 +24,10 @@ export const RegForm = () => {
   };
 
   return (
-    <Grid container sx={{ justifyContent: 'center' }}>
+    <Grid container sx={{ justifyContent: 'center', maxWidth: '800px' }}>
       <Paper>
         <Box p={5}>
-          <Typography variant="h5">Registration</Typography>
+          <Typography variant="h3">Registration</Typography>
           <Formik
             initialValues={initialValue}
             validationSchema={yupRegisterValidation}
@@ -39,9 +39,9 @@ export const RegForm = () => {
                 <Form>
                   {/* Name */}
                   <TextField
+                    fullWidth
                     label="Name"
                     name="name"
-                    fullWidth
                     variant="outlined"
                     margin="dense"
                     value={name}
@@ -50,14 +50,16 @@ export const RegForm = () => {
                     helperText={<ErrorMessage name="name" />}
                     error={props.errors.name && props.touched.name}
                     required
+                    size="small"
                   />
                   {/* Email */}
                   <Field
+                    fullWidth
+                    size="small"
                     as={TextField}
                     label="Email"
                     type="Email"
                     name="email"
-                    fullWidth
                     variant="outlined"
                     margin="dense"
                     helperText={<ErrorMessage name="email" />}
@@ -65,11 +67,12 @@ export const RegForm = () => {
                   />
                   {/* Password */}
                   <Field
+                    fullWidth
+                    size="small"
                     as={TextField}
                     label="Password"
                     name="password"
                     type="password"
-                    fullWidth
                     variant="outlined"
                     margin="dense"
                     helperText={<ErrorMessage name="password" />}
@@ -77,11 +80,12 @@ export const RegForm = () => {
                   />
                   {/* Confirm Password */}
                   <Field
+                    fullWidth
+                    size="small"
                     as={TextField}
                     label="Confirm Password"
                     name="confirmPassword"
                     type="password"
-                    fullWidth
                     variant="outlined"
                     margin="dense"
                     helperText={<ErrorMessage name="confirmPassword" />}
@@ -90,12 +94,7 @@ export const RegForm = () => {
                       props.touched.confirmPassword
                     }
                   />
-                  <Button
-                    variant="contained"
-                    type="submit"
-                    color="primary"
-                    fullWidth
-                  >
+                  <Button variant="contained" type="submit" color="primary">
                     Submit
                   </Button>
                 </Form>

@@ -52,6 +52,7 @@ export const EditForm = ({ data, onClose }) => {
                       margin="dense"
                       helperText={<ErrorMessage name="name" />}
                       error={props.errors.email && props.touched.email}
+                      size="small"
                     />
                     {/* Phone Number */}
                     <Field
@@ -64,6 +65,7 @@ export const EditForm = ({ data, onClose }) => {
                       margin="dense"
                       helperText={<ErrorMessage name="number" />}
                       error={props.errors.password && props.touched.password}
+                      size="small"
                     />
 
                     <Button
