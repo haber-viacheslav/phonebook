@@ -25,14 +25,19 @@ const ContactItem = ({ contact: { name, number, id } }) => {
           borderRadius: '0.2rem',
           boxShadow: `2px 3px 3px ${getRandomColor()}`,
           background: `linear-gradient(145deg, ${getRandomColor()}26, ${getRandomColor()}26)`,
-          width: { xs: '260px', sm: '500px' },
+          width: { xs: '260px', sm: '440px' },
           display: 'flex',
           alignItems: 'center',
           position: 'relative',
         }}
       >
         <Box
-          sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' } }}
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row', lg: 'column' },
+            gap: { sm: '1.2rem', lg: '0.2rem' },
+            alignItems: 'center',
+          }}
         >
           <Typography variant="subtitle1">{name}:</Typography>
           <Typography variant="body1">{number}</Typography>
