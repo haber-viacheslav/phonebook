@@ -18,7 +18,7 @@ const authSlice = createSlice({
         state.token = action.payload.token;
         state.isLoggedIn = true;
         toast.success(`Hi 👋${state.user.name}`, {
-          duration: 1000,
+          duration: 2000,
           style: {
             borderRadius: '10px',
             background: '#333',
@@ -60,7 +60,7 @@ const authSlice = createSlice({
         isAllOf(...getActions(authExtraActions, 'rejected')),
         state => {
           toast.error('Error! 😲 Try again later..', {
-            duration: 1000,
+            duration: 2000,
             style: {
               borderRadius: '10px',
               background: '#333',
@@ -74,7 +74,7 @@ const authSlice = createSlice({
         isAllOf(...getActions(authExtraActions, 'pending')),
         state => {
           toast.loading('Loading... ☕', {
-            duration: 1000,
+            duration: 2000,
             style: {
               borderRadius: '10px',
               background: '#333',
@@ -84,26 +84,6 @@ const authSlice = createSlice({
           return state;
         }
       ),
-  // .addCase(userSignup.pending, state => {
-  //   return state;
-  // })
-  // .addCase(userSignup.rejected, state => {
-  //   return state;
-  // })
-  // .addCase(userLogin.pending, state => {
-  //   return state;
-  // })
-
-  // .addCase(userLogin.rejected, state => {
-  //   return state;
-  // })
-  // .addCase(userLogout.pending, state => {
-  //   return state;
-  // })
-
-  // .addCase(userLogout.rejected, state => {
-  //   return state;
-  // }),
 });
 
 export const authReducer = authSlice.reducer;

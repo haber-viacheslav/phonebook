@@ -5,9 +5,11 @@ export const AppFooter = () => {
   return (
     <footer>
       <Paper sx={{}}>
-        <Container>
+        <Container sx={{ border: "1px solid 'prinary.second'" }}>
           <Box sx={{ display: 'flex', justifyContent: 'center' }} p={4}>
-            <Typography variant="subtitle1">2023 developed</Typography>
+            <Typography sx={{ fontSize: '1rem' }} variant="body1">
+              2023 developed
+            </Typography>
           </Box>
         </Container>
       </Paper>

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { Modal } from '../MainModal/Modal';
 import { EditForm } from 'components/EditForm/EditForm';
 import { IconButton, Tooltip, Box, Typography } from '@mui/material';
+import Portal from '@mui/base/Portal';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 // import { SpeedDialMenu } from 'components/SpeedDeal/SpeadDialMenu';
@@ -73,9 +74,11 @@ const ContactItem = ({ contact: { name, number, id } }) => {
       </Box>
 
       {isOpen && (
-        <Modal onClick={handleToggleIsOpen}>
-          <EditForm onClose={handleToggleIsOpen} data={actualFields} />
-        </Modal>
+        <Portal>
+          <Modal onClick={handleToggleIsOpen}>
+            <EditForm onClose={handleToggleIsOpen} data={actualFields} />
+          </Modal>
+        </Portal>
       )}
     </>
   );

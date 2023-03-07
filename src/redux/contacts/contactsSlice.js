@@ -88,7 +88,7 @@ const contactsSlice = createSlice({
           state.isLoading = false;
           state.error = action.payload;
           toast.error('Error! 😲 Try again later..', {
-            duration: 1000,
+            duration: 2000,
             style: {
               borderRadius: '10px',
               background: '#333',

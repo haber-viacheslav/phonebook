@@ -26,6 +26,7 @@ export const SpeedDialMenu = () => {
         }}
       />
       <SpeedDial
+        directionLeft
         ariaLabel="SpeedDial menu"
         sx={{
           position: 'absolute',

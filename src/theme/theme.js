@@ -57,10 +57,11 @@ export const theme = createTheme({
   },
   typography: {
     h1: {
-      fontSize: '2rem',
+      fontSize: '2.5rem',
+      fontWeight: 900,
 
       '@media (min-width:1200px)': {
-        fontSize: '2.75rem',
+        fontSize: '4rem',
       },
     },
     h2: {
