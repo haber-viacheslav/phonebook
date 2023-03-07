@@ -11,7 +11,7 @@ export const Layout = () => {
       <AppBar />
       <Suspense fallback={null}>
         <main>
-          <Paper sx={{ height: { xs: '70vh', sm: '80vh', xl: '88vh' } }}>
+          <Paper sx={{ height: { xs: '76vh', sm: '80vh', lg: '88vh' } }}>
             <section>
               <Outlet />
             </section>
