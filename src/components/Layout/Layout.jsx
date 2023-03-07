@@ -4,18 +4,17 @@ import { AppBar } from 'components/AppBar/AppBar';
 import { Toaster } from 'react-hot-toast';
 import { Paper } from '@mui/material';
 import { AppFooter } from 'components/AppFooter/AppFooter';
+import { Loader } from 'components/Loader/Loader';
 
 export const Layout = () => {
   return (
     <Paper square>
       <AppBar />
-      <Suspense fallback={null}>
+      <Suspense fallback={<Loader />}>
         <main>
-          <Paper sx={{ height: { xs: '76vh', sm: '80vh', lg: '88vh' } }}>
-            <section>
-              <Outlet />
-            </section>
-          </Paper>
+          <section>
+            <Outlet />
+          </section>
         </main>
       </Suspense>
       <Toaster />

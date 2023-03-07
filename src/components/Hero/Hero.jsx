@@ -4,7 +4,7 @@ import {
   MouseParallaxChild,
   MouseParallaxContainer,
 } from 'react-parallax-mouse';
-import { Typography } from '@mui/material';
+import { Typography, Paper } from '@mui/material';
 import * as images from 'images/images';
 import { randomPosition } from 'components/helpers/randomPosition';
 import { HeroWrp } from './Hero.styled';
@@ -12,9 +12,10 @@ import { HeroWrp } from './Hero.styled';
 export const Hero = () => {
   const theme = useTheme();
   const matchesMd = useMediaQuery(theme.breakpoints.up('md'));
+  const matchedLg = useMediaQuery(theme.breakpoints.up('lg'));
   const matchesXl = useMediaQuery(theme.breakpoints.up('xl'));
   return (
-    <>
+    <Paper sx={{ height: { xs: '76vh', sm: '80vh', lg: '84vh', xl: '87vh' } }}>
       <HeroWrp>
         <MouseParallaxContainer
           className="parallax"
@@ -68,8 +69,8 @@ export const Hero = () => {
                 style={{
                   filter: 'invert(1)',
                   position: 'absolute',
-                  bottom: `${randomPosition(20, 30)}%`,
-                  right: `${randomPosition(150, 200)}px`,
+                  bottom: `${randomPosition(20, 30)}px`,
+                  left: `${randomPosition(20, 40)}px`,
                 }}
               >
                 <img width="100px" src={images.iconVoice} alt="voice" />
@@ -98,8 +99,8 @@ export const Hero = () => {
                 style={{
                   filter: 'invert(1)',
                   position: 'absolute',
-                  top: `${randomPosition(50, 200)}px`,
-                  right: `${randomPosition(400, 700)}px`,
+                  top: `${randomPosition(20, 60)}px`,
+                  right: `${randomPosition(30, 50)}px`,
                 }}
               >
                 <img width="100px" src={images.iconPhone} alt="phone" />
@@ -110,8 +111,8 @@ export const Hero = () => {
                 style={{
                   filter: 'invert(1)',
                   position: 'absolute',
-                  bottom: `${randomPosition(1, 400)}px`,
-                  left: `${randomPosition(400, 800)}px`,
+                  bottom: `${randomPosition(20, 60)}px`,
+                  right: `${randomPosition(30, 50)}px`,
                 }}
               >
                 <img width="100px" src={images.iconPhoneOld} alt="old phone" />
@@ -122,8 +123,8 @@ export const Hero = () => {
                 style={{
                   filter: 'invert(1)',
                   position: 'absolute',
-                  top: `${randomPosition(10, 150)}px`,
-                  left: `${randomPosition(200, 400)}px`,
+                  top: `${randomPosition(200, 280)}px`,
+                  left: `${randomPosition(20, 80)}px`,
                 }}
               >
                 <img width="60px" src={images.iconPhone1} alt="phone" />
@@ -134,8 +135,8 @@ export const Hero = () => {
                 style={{
                   filter: 'invert(1)',
                   position: 'absolute',
-                  top: `${randomPosition(1, 100)}px`,
-                  left: `${randomPosition(1, 100)}px`,
+                  top: `${randomPosition(30, 100)}px`,
+                  left: `${randomPosition(30, 100)}px`,
                 }}
               >
                 <img width="100px" src={images.iconMail} alt="mail" />
@@ -152,14 +153,19 @@ export const Hero = () => {
               >
                 <img width="100px" src={images.iconMail1} alt="open mail" />
               </MouseParallaxChild>
+            </>
+          )}
+
+          {matchedLg && (
+            <>
               <MouseParallaxChild
                 factorX={0.05}
                 factorY={0.4}
                 style={{
                   filter: 'invert(1)',
                   position: 'absolute',
-                  top: `${randomPosition(15, 80)}px`,
-                  right: `${randomPosition(45, 200)}px`,
+                  top: `${randomPosition(50, 80)}px`,
+                  right: `${randomPosition(150, 200)}px`,
                 }}
               >
                 <img width="100px" src={images.colorPhone} alt="color phone" />
@@ -171,7 +177,7 @@ export const Hero = () => {
                   filter: 'invert(1)',
                   position: 'absolute',
                   bottom: `${randomPosition(40, 60)}%`,
-                  right: `${randomPosition(50, 100)}px`,
+                  right: `${randomPosition(50, 80)}px`,
                 }}
               >
                 <img width="100px" src={images.colorPhone4} alt="over phone" />
@@ -182,8 +188,8 @@ export const Hero = () => {
                 style={{
                   filter: 'invert(1)',
                   position: 'absolute',
-                  bottom: `${randomPosition(50, 150)}px`,
-                  left: `${randomPosition(100, 200)}px`,
+                  bottom: `${randomPosition(100, 150)}px`,
+                  left: `${randomPosition(140, 200)}px`,
                 }}
               >
                 <img width="100px" src={images.colorPhone3} alt="phone 3" />
@@ -194,8 +200,8 @@ export const Hero = () => {
                 style={{
                   filter: 'invert(1)',
                   position: 'absolute',
-                  bottom: `50%`,
-                  left: `${randomPosition(100, 200)}px`,
+                  bottom: `${randomPosition(100, 200)}px`,
+                  right: `${randomPosition(100, 200)}px`,
                 }}
               >
                 <img width="100px" src={images.colorPhone2} alt="phone 2" />
@@ -206,8 +212,8 @@ export const Hero = () => {
                 style={{
                   filter: 'invert(1)',
                   position: 'absolute',
-                  top: `10%`,
-                  left: `${randomPosition(169, 800)}px`,
+                  bottom: `${randomPosition(300, 400)}px`,
+                  left: `${randomPosition(30, 80)}px`,
                 }}
               >
                 <img width="100px" src={images.colorPhone1} alt="phone 1" />
@@ -377,6 +383,6 @@ export const Hero = () => {
           )}
         </MouseParallaxContainer>
       </HeroWrp>
-    </>
+    </Paper>
   );
 };

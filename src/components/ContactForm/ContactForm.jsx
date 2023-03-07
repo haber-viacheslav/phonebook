@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/selectors';
 import { checkContact, checkPhone } from 'components/helpers/formCheckers';
 import { contactYupSchema } from 'components/helpers/yupValidation';
+import { toast } from 'react-hot-toast';
 
 // Initial values for formik
 const initialValues = {
@@ -26,11 +27,25 @@ const ContactForm = ({ onClose }) => {
   const contacts = useSelector(selectContacts);
   const handleSubmit = (values, { resetForm }) => {
     if (checkContact(contacts, values)) {
-      alert(`${values.name} is already in contacts`);
+      toast.error(`Error! 😲 ${values.name} is already in contacts`, {
+        duration: 2000,
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      });
       return;
     }
     if (checkPhone(contacts, values)) {
-      alert(`${values.number} is already in contacts`);
+      toast.error(`Error! 😲 ${values.number} is already in contacts`, {
+        duration: 2000,
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      });
       return;
     }
     dispatch(addContact(values));

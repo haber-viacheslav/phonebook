@@ -3,5 +3,5 @@ export const checkContact = (contacts, values) => {
 };
 
 export const checkPhone = (contacts, values) => {
-  return contacts.find(contact => contact.phone === values.number.trim());
+  return contacts.find(contact => contact.number === values.number.trim());
 };

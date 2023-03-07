@@ -12,15 +12,35 @@ import { contactYupSchema } from 'components/helpers/yupValidation';
 import { useDispatch } from 'react-redux';
 import { changeContact, fetchContacts } from 'redux/contacts/contactService';
 import { PropTypes } from 'prop-types';
+import { checkContact, checkPhone } from 'components/helpers/formCheckers';
+import { selectContacts } from 'redux/contacts/selectors';
+import { useSelector } from 'react-redux';
+import { toast } from 'react-hot-toast';
+
 export const EditForm = ({ data, onClose }) => {
   const { name, number, id } = data;
   const initialValue = {
     name: name,
     number: number,
   };
-
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
   const handleChangeContact = (data, props) => {
+    if (checkContact(contacts, data) || checkPhone(contacts, data)) {
+      toast.error(
+        `Error! 😲 ${data.name}  ${data.number} is already in contacts`,
+        {
+          duration: 2000,
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+        }
+      );
+      return;
+    }
+
     dispatch(changeContact({ id, data }));
     onClose();
     props.resetForm();
