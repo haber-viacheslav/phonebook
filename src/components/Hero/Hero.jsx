@@ -35,7 +35,7 @@ export const Hero = () => {
             sx={{
               position: 'absolute',
               left: { xs: '20%', sm: '50%' },
-              top: '50%',
+              top: '55%',
               transform: {
                 xs: 'translate(-20%, -50%)',
                 sm: 'translate(-50%, -50%)',
