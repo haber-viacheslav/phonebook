@@ -9,7 +9,6 @@ import { IconButton, Tooltip, Box, Typography } from '@mui/material';
 import Portal from '@mui/base/Portal';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
-// import { SpeedDialMenu } from 'components/SpeedDeal/SpeadDialMenu';
 
 const ContactItem = ({ contact: { name, number, id } }) => {
   const actualFields = { name, number, id };
@@ -63,14 +62,6 @@ const ContactItem = ({ contact: { name, number, id } }) => {
             </IconButton>
           </Tooltip>
         </Box>
-        {/* <SpeedDialMenu>
-          <IconButton onClick={handleToggleIsOpen}>
-            <ModeEditIcon />
-          </IconButton>
-          <IconButton onClick={handleDeleteContact}>
-            <DeleteForeverIcon />
-          </IconButton>
-        </SpeedDialMenu> */}
       </Box>
 
       {isOpen && (

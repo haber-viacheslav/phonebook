@@ -13,12 +13,4 @@ export const Main = styled.main`
 export const Section = styled.section`
   padding-top: 20px;
   padding-bottom: 20px;
-  @media (min-width: 480px) {
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
-  @media (min-width: 900px) {
-    padding-top: 40px;
-    padding-bottom: 40px;
-  }
 `;

@@ -32,7 +32,7 @@ export const theme = createTheme({
               background: 'linear-gradient(145deg, #0d013e, #2711ba)',
               boxShadow: '2px 3px 4px #2e2bc2',
               transition:
-                '250ms transform ease-in-out,300ms box-shadow ease-out,150ms color ease-in',
+                '250ms transform ease-in-out, 300ms box-shadow ease-out, 150ms color ease-in',
               '&:hover, &:focus': {
                 color: '#ffbb00',
                 transform: 'scale(1.04)',

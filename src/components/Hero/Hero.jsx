@@ -1,3 +1,5 @@
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import {
   MouseParallaxChild,
   MouseParallaxContainer,
@@ -7,6 +9,8 @@ import * as images from 'images/images';
 import { randomPosition } from 'components/helpers/randomPosition';
 
 export const Hero = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
   return (
     <>
       <div
@@ -34,9 +38,12 @@ export const Hero = () => {
             variant="h1"
             sx={{
               position: 'absolute',
-              right: '20%',
+              left: { xs: '20%', sm: '50%' },
               top: '50%',
-              transform: 'translate(0, -50%)',
+              transform: {
+                xs: 'translate(-20%, -50%)',
+                sm: 'translate(-50%, -50%)',
+              },
               zIndex: 50,
             }}
           >
@@ -58,152 +65,162 @@ export const Hero = () => {
               backfaceVisibility: 'hidden',
             }}
           />
-          <MouseParallaxChild
-            factorX={0.1}
-            factorY={0.3}
-            style={{
-              filter: 'invert(1)',
-              position: 'absolute',
-              bottom: `${randomPosition(100, 400)}px`,
-              right: `${randomPosition(150, 400)}px`,
-            }}
-          >
-            <img width="100px" src={images.iconVoice} alt="voice" />
-          </MouseParallaxChild>
-          <MouseParallaxChild
-            factorX={0.2}
-            factorY={0.01}
-            style={{
-              filter: 'invert(1)',
-              position: 'absolute',
-              bottom: '-10%',
-              left: '50%',
-              transform: 'translateX(-50%)',
-            }}
-          >
-            <img width="600px" src={images.phoneHands} alt="phone in hands" />
-          </MouseParallaxChild>
-          <MouseParallaxChild
-            factorX={0.1}
-            factorY={0.5}
-            style={{
-              filter: 'invert(1)',
-              position: 'absolute',
-              bottom: `${randomPosition(1, 500)}px`,
-              right: `${randomPosition(1, 400)}px`,
-            }}
-          >
-            <img width="100px" src={images.iconPhone} alt="phone" />
-          </MouseParallaxChild>
-          <MouseParallaxChild
-            factorX={0.2}
-            factorY={0.6}
-            style={{
-              filter: 'invert(1)',
-              position: 'absolute',
-              bottom: `${randomPosition(1, 400)}px`,
-              left: `${randomPosition(1, 800)}px`,
-            }}
-          >
-            <img width="100px" src={images.iconPhoneOld} alt="old phone" />
-          </MouseParallaxChild>
-          <MouseParallaxChild
-            factorX={0.3}
-            factorY={0.8}
-            style={{
-              filter: 'invert(1)',
-              position: 'absolute',
-              bottom: `${randomPosition(1, 400)}px`,
-              left: `${randomPosition(1, 400)}px`,
-            }}
-          >
-            <img width="100px" src={images.iconPhone1} alt="phone" />
-          </MouseParallaxChild>
-          <MouseParallaxChild
-            factorX={0.2}
-            factorY={0.7}
-            style={{
-              filter: 'invert(1)',
-              position: 'absolute',
-              bottom: `${randomPosition(1, 460)}px`,
-              left: `${randomPosition(1, 400)}px`,
-            }}
-          >
-            <img width="100px" src={images.iconMail} alt="mail" />
-          </MouseParallaxChild>
-          <MouseParallaxChild
-            factorX={0.8}
-            factorY={0.1}
-            style={{
-              filter: 'invert(1)',
-              position: 'absolute',
-              bottom: `${randomPosition(1, 821)}px`,
-              left: `${randomPosition(1, 400)}px`,
-            }}
-          >
-            <img width="100px" src={images.iconMail1} alt="open mail" />
-          </MouseParallaxChild>
-          <MouseParallaxChild
-            factorX={0.2}
-            factorY={0.4}
-            style={{
-              filter: 'invert(1)',
-              position: 'absolute',
-              bottom: `${randomPosition(200, 350)}px`,
-              left: `${randomPosition(45, 400)}px`,
-            }}
-          >
-            <img width="100px" src={images.colorPhone} alt="color phone" />
-          </MouseParallaxChild>
-          <MouseParallaxChild
-            factorX={0.2}
-            factorY={0.6}
-            style={{
-              filter: 'invert(1)',
-              position: 'absolute',
-              bottom: `${randomPosition(10, 75)}px`,
-              left: `${randomPosition(100, 800)}px`,
-            }}
-          >
-            <img width="100px" src={images.colorPhone4} alt="over phone" />
-          </MouseParallaxChild>
-          <MouseParallaxChild
-            factorX={0.7}
-            factorY={0.3}
-            style={{
-              filter: 'invert(1)',
-              position: 'absolute',
-              bottom: `${randomPosition(200, 400)}px`,
-              left: `${randomPosition(100, 600)}px`,
-            }}
-          >
-            <img width="100px" src={images.colorPhone3} alt="phone 3" />
-          </MouseParallaxChild>
-          <MouseParallaxChild
-            factorX={0.4}
-            factorY={0.1}
-            style={{
-              filter: 'invert(1)',
-              position: 'absolute',
-              bottom: `${randomPosition(152, 400)}px`,
-              left: `${randomPosition(178, 700)}px`,
-            }}
-          >
-            <img width="100px" src={images.colorPhone2} alt="phone 2" />
-          </MouseParallaxChild>
-          <MouseParallaxChild
-            factorX={0.9}
-            factorY={0.1}
-            style={{
-              filter: 'invert(1)',
-              position: 'absolute',
-              top: `${randomPosition(150, 400)}px`,
-              left: `${randomPosition(169, 800)}px`,
-            }}
-          >
-            <img width="100px" src={images.colorPhone1} alt="phone 1" />
-          </MouseParallaxChild>
-          <MouseParallaxChild
+          {matches && (
+            <>
+              <MouseParallaxChild
+                factorX={0.1}
+                factorY={0.2}
+                style={{
+                  filter: 'invert(1)',
+                  position: 'absolute',
+                  bottom: `${randomPosition(100, 400)}px`,
+                  right: `${randomPosition(150, 400)}px`,
+                }}
+              >
+                <img width="100px" src={images.iconVoice} alt="voice" />
+              </MouseParallaxChild>
+              <MouseParallaxChild
+                factorX={0.2}
+                factorY={0.01}
+                style={{
+                  filter: 'invert(1)',
+                  position: 'absolute',
+                  bottom: '-10%',
+                  left: '50%',
+                  zIndex: 40,
+                  transform: 'translateX(-50%)',
+                }}
+              >
+                <img
+                  width="600px"
+                  src={images.phoneHands}
+                  alt="phone in hands"
+                />
+              </MouseParallaxChild>
+              <MouseParallaxChild
+                factorX={0.1}
+                factorY={0.2}
+                style={{
+                  filter: 'invert(1)',
+                  position: 'absolute',
+                  top: `${randomPosition(1, 300)}px`,
+                  right: `${randomPosition(500, 800)}px`,
+                }}
+              >
+                <img width="100px" src={images.iconPhone} alt="phone" />
+              </MouseParallaxChild>
+              <MouseParallaxChild
+                factorX={0.2}
+                factorY={0.3}
+                style={{
+                  filter: 'invert(1)',
+                  position: 'absolute',
+                  bottom: `${randomPosition(1, 400)}px`,
+                  left: `${randomPosition(400, 800)}px`,
+                }}
+              >
+                <img width="100px" src={images.iconPhoneOld} alt="old phone" />
+              </MouseParallaxChild>
+              <MouseParallaxChild
+                factorX={0.3}
+                factorY={0.8}
+                style={{
+                  filter: 'invert(1)',
+                  position: 'absolute',
+                  top: `${randomPosition(10, 150)}px`,
+                  left: `${randomPosition(200, 400)}px`,
+                }}
+              >
+                <img width="100px" src={images.iconPhone1} alt="phone" />
+              </MouseParallaxChild>
+              <MouseParallaxChild
+                factorX={0.2}
+                factorY={0.3}
+                style={{
+                  filter: 'invert(1)',
+                  position: 'absolute',
+                  top: `${randomPosition(1, 100)}px`,
+                  left: `${randomPosition(1, 100)}px`,
+                }}
+              >
+                <img width="100px" src={images.iconMail} alt="mail" />
+              </MouseParallaxChild>
+              <MouseParallaxChild
+                factorX={0.8}
+                factorY={0.2}
+                style={{
+                  filter: 'invert(1)',
+                  position: 'absolute',
+                  top: `${randomPosition(30, 150)}px`,
+                  left: '50%',
+                }}
+              >
+                <img width="100px" src={images.iconMail1} alt="open mail" />
+              </MouseParallaxChild>
+              <MouseParallaxChild
+                factorX={0.05}
+                factorY={0.4}
+                style={{
+                  filter: 'invert(1)',
+                  position: 'absolute',
+                  top: `${randomPosition(15, 80)}px`,
+                  right: `${randomPosition(45, 200)}px`,
+                }}
+              >
+                <img width="100px" src={images.colorPhone} alt="color phone" />
+              </MouseParallaxChild>
+              <MouseParallaxChild
+                factorX={0.2}
+                factorY={0.8}
+                style={{
+                  filter: 'invert(1)',
+                  position: 'absolute',
+                  bottom: `${randomPosition(10, 75)}px`,
+                  right: `${randomPosition(100, 200)}px`,
+                }}
+              >
+                <img width="100px" src={images.colorPhone4} alt="over phone" />
+              </MouseParallaxChild>
+              <MouseParallaxChild
+                factorX={0.4}
+                factorY={0.3}
+                style={{
+                  filter: 'invert(1)',
+                  position: 'absolute',
+                  bottom: `${randomPosition(50, 150)}px`,
+                  left: `${randomPosition(100, 200)}px`,
+                }}
+              >
+                <img width="100px" src={images.colorPhone3} alt="phone 3" />
+              </MouseParallaxChild>
+              <MouseParallaxChild
+                factorX={0.4}
+                factorY={0.1}
+                style={{
+                  filter: 'invert(1)',
+                  position: 'absolute',
+                  bottom: `50%`,
+                  left: `${randomPosition(100, 200)}px`,
+                }}
+              >
+                <img width="100px" src={images.colorPhone2} alt="phone 2" />
+              </MouseParallaxChild>
+              <MouseParallaxChild
+                factorX={0.3}
+                factorY={0.1}
+                style={{
+                  filter: 'invert(1)',
+                  position: 'absolute',
+                  top: `10%`,
+                  left: `${randomPosition(169, 800)}px`,
+                }}
+              >
+                <img width="100px" src={images.colorPhone1} alt="phone 1" />
+              </MouseParallaxChild>
+            </>
+          )}
+
+          {/* <MouseParallaxChild
             factorX={0.2}
             factorY={0.6}
             style={{
@@ -348,7 +365,7 @@ export const Hero = () => {
             }}
           >
             <img width="100px" src={images.button11} alt="button11" />
-          </MouseParallaxChild>
+          </MouseParallaxChild> */}
         </MouseParallaxContainer>
       </div>
     </>
