@@ -6,6 +6,7 @@ import { StyledBadge } from './UserMenu.styled';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import { getRandomColor } from 'components/helpers/getRandomColor';
+
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
@@ -31,7 +32,7 @@ export const UserMenu = () => {
         {user.name}
       </Typography>
       <Button variant="contained" type="button" onClick={handleLogOut}>
-        Logout
+        <Typography variant="button">Logout</Typography>
       </Button>
     </Box>
   );
