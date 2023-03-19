@@ -57,7 +57,12 @@ const contactsSlice = createSlice({
       .addCase(
         changeContact.fulfilled,
         (state, action) => {
-          state.items.map(item => item !== action.payload);
+          // state.items.map(item => item !== action.payload);
+          state.splice(
+            state.findIndex(contact => contact.id === action.payload.id),
+            1,
+            action.payload
+          );
         },
         toast.success('Success 👌', {
           duration: 1000,
