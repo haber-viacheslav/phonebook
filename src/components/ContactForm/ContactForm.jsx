@@ -97,10 +97,14 @@ const ContactForm = ({ onClose }) => {
                     />
 
                     <Button
+                      sx={{
+                        textAlign: 'center',
+                        display: 'block',
+                        mx: 'auto',
+                      }}
                       variant="contained"
                       type="submit"
                       color="primary"
-                      fullWidth
                     >
                       Submit
                     </Button>

@@ -24,7 +24,7 @@ export const RegForm = () => {
   };
 
   return (
-    <Grid container sx={{ justifyContent: 'center', maxWidth: '800px' }}>
+    <Grid container sx={{ justifyContent: 'center', maxWidth: '500px' }}>
       <Paper sx={{ boxShadow: '2px 2px 3px #adadad' }}>
         <Box p={5}>
           <Typography variant="h3">Registration</Typography>
@@ -94,7 +94,16 @@ export const RegForm = () => {
                       props.touched.confirmPassword
                     }
                   />
-                  <Button variant="contained" type="submit" color="primary">
+                  <Button
+                    variant="contained"
+                    type="submit"
+                    color="primary"
+                    sx={{
+                      textAlign: 'center',
+                      display: 'block',
+                      mx: 'auto',
+                    }}
+                  >
                     Submit
                   </Button>
                 </Form>

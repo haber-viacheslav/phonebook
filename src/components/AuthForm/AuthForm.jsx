@@ -16,7 +16,7 @@ export const AuthForm = () => {
   };
 
   return (
-    <Grid container sx={{ justifyContent: 'center' }}>
+    <Grid container sx={{ justifyContent: 'center', maxWidth: '500px' }}>
       <Paper sx={{ boxShadow: '2px 2px 3px #adadad' }}>
         <Box p={5}>
           <Typography variant="h3">Login</Typography>
@@ -55,7 +55,16 @@ export const AuthForm = () => {
                     error={props.errors.password && props.touched.password}
                   />
 
-                  <Button variant="contained" type="submit" color="primary">
+                  <Button
+                    variant="contained"
+                    type="submit"
+                    color="primary"
+                    sx={{
+                      textAlign: 'center',
+                      display: 'block',
+                      mx: 'auto',
+                    }}
+                  >
                     Submit
                   </Button>
                 </Form>
