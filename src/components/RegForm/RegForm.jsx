@@ -25,7 +25,7 @@ export const RegForm = () => {
 
   return (
     <Grid container sx={{ justifyContent: 'center', maxWidth: '800px' }}>
-      <Paper>
+      <Paper sx={{ boxShadow: '2px 2px 3px #adadad' }}>
         <Box p={5}>
           <Typography variant="h3">Registration</Typography>
           <Formik

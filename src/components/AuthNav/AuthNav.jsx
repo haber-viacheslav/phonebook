@@ -5,10 +5,10 @@ export const AuthNav = () => {
   return (
     <AuthNavMenu>
       <StyledLink to="/register" end>
-        <Typography variant="button"> Register</Typography>
+        <Typography variant="button">Register</Typography>
       </StyledLink>
       <StyledLink to="/login">
-        <Typography variant="button"> Login</Typography>
+        <Typography variant="button">Login</Typography>
       </StyledLink>
     </AuthNavMenu>
   );

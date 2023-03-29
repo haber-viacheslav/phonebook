@@ -15,7 +15,7 @@ export const Hero = () => {
   const matchedLg = useMediaQuery(theme.breakpoints.up('lg'));
   const matchesXl = useMediaQuery(theme.breakpoints.up('xl'));
   return (
-    <Paper sx={{ height: { xs: '76vh', sm: '80vh', lg: '84vh', xl: '87vh' } }}>
+    <Paper sx={{ height: { xs: '72vh', sm: '80vh', lg: '84vh', xl: '85vh' } }}>
       <HeroWrp>
         <MouseParallaxContainer
           className="parallax"

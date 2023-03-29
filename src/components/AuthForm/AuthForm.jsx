@@ -17,7 +17,7 @@ export const AuthForm = () => {
 
   return (
     <Grid container sx={{ justifyContent: 'center' }}>
-      <Paper>
+      <Paper sx={{ boxShadow: '2px 2px 3px #adadad' }}>
         <Box p={5}>
           <Typography variant="h3">Login</Typography>
           <Formik

@@ -3,19 +3,23 @@ import { Paper, Container, Typography, Box, Link } from '@mui/material';
 export const AppFooter = () => {
   return (
     <footer>
-      <Paper sx={{ border: "1px solid '#fffff'" }}>
-        <Container>
+      <Paper sx={{ border: "1px solid '#2e2e2ef'" }}>
+        <Container
+          sx={{
+            py: { xs: '6px', md: '20px', lg: '40px' },
+          }}
+        >
           <address>
             <Box
               sx={{
                 display: 'flex',
-                px: '3rem',
                 justifyContent: 'center',
                 gap: { xs: '10px', sm: '20px' },
                 flexWrap: 'wrap',
                 flexDirection: { sx: 'column', md: 'row' },
+
+                px: '3rem',
               }}
-              p={4}
             >
               <Link
                 color="inherit"

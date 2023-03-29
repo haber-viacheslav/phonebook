@@ -31,8 +31,8 @@ export const EditForm = ({ data, onClose }) => {
   return (
     <Container>
       <Grid container sx={{ justifyContent: 'center' }}>
-        <Paper>
-          <Box p={5}>
+        <Paper sx={{ boxShadow: '2px 2px 3px #adadad' }}>
+          <Box p={5} sx={{ maxWidth: '450px' }}>
             <Typography variant="h5">Edit contact</Typography>
             <Formik
               initialValues={initialValue}
@@ -70,7 +70,11 @@ export const EditForm = ({ data, onClose }) => {
                     />
 
                     <Button
-                      sx={{ textAlign: 'center' }}
+                      sx={{
+                        textAlign: 'center',
+                        display: 'block',
+                        mx: 'auto',
+                      }}
                       variant="contained"
                       type="submit"
                       color="primary"

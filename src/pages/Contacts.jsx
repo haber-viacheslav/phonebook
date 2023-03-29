@@ -11,7 +11,7 @@ const Contacts = () => {
   const handleToggleIsOpen = () => setIsOpen(!isOpen);
   return (
     <Paper
-      sx={{ minHeight: { xs: '76vh', sm: '80vh', lg: '84vh', xl: '87vh' } }}
+      sx={{ minHeight: { xs: '72vh', sm: '80vh', lg: '84vh', xl: '85vh' } }}
     >
       <Container
         sx={{

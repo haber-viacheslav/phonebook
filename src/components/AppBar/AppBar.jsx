@@ -10,14 +10,14 @@ export const AppBar = () => {
       <Paper>
         <Container
           sx={{
-            borderBottom: '2px solid #ffffff5d',
+            borderBottom: '2px solid #3030305d',
             borderRadius: '4px',
           }}
           maxWidth="lx"
         >
           <Box
             sx={{
-              py: 2,
+              py: 2.2,
               display: 'flex',
               justifyContent: 'space-between',
             }}

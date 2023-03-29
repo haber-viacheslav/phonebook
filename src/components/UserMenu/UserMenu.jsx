@@ -20,7 +20,14 @@ export const UserMenu = () => {
           anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
           variant="dot"
         >
-          <Avatar sx={{ bgcolor: getRandomColor() }}>
+          <Avatar
+            sx={{
+              bgcolor: getRandomColor(),
+              width: '36px',
+              height: '36px',
+              boxShadow: '2px 2px 3px #adadad',
+            }}
+          >
             {user.name.slice(0, 2).toUpperCase()}
           </Avatar>
         </StyledBadge>

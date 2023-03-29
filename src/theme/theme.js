@@ -6,6 +6,13 @@ export const theme = createTheme({
         noSsr: true,
       },
     },
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: () => ({
+          color: theme.palette.primary.error,
+        }),
+      },
+    },
     MuiBox: {
       styleOverrides: {
         root: ({ ownerState }) => ({
@@ -29,14 +36,21 @@ export const theme = createTheme({
               outline: 'none',
               borderRadius: '10px',
               textDecoration: 'none',
-              background: 'linear-gradient(145deg, #0d013e, #2711ba)',
+              backgroundСolor: '#dddddd',
+              background:
+                'linear-gradient(135deg, #dddddd 0%, #5d5c5c 24%, #232323 56%, #000000 100%)',
               boxShadow: '2px 3px 4px #2e2bc2',
               transition:
-                '250ms transform ease-in-out, 300ms box-shadow ease-out, 150ms color ease-in',
+                '250ms transform ease-in-out, 300ms box-shadow ease-out, 150ms color ease-in, 500ms background ease-in-out',
               '&:hover, &:focus': {
                 color: '#ffbb00',
                 transform: 'scale(1.04)',
                 boxShadow: '2px 3px 4px #b8c501, 1px 1px 2px #fbff00',
+              },
+              '&:active': {
+                background:
+                  'linear-gradient(-10deg, #5d5c5c 0%, #232323 38%, #000000 100%)',
+                boxShadow: '2px 3px 4px #0048ff, 1px 1px 2px #0400ff',
               },
             }),
         }),
@@ -106,6 +120,7 @@ export const theme = createTheme({
       main: '#ffffff',
       second: '#121858',
       third: '#474f97',
+      error: '#ff0000',
     },
     secondary: {
       main: '#1c54b2',
