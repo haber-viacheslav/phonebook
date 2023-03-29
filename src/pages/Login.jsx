@@ -9,7 +9,7 @@ const Login = () => {
     >
       <Container
         sx={{
-          py: '40px',
+          py: { xs: '20px', md: '40px' },
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',

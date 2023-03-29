@@ -32,7 +32,7 @@ export const EditForm = ({ data, onClose }) => {
     <Container>
       <Grid container sx={{ justifyContent: 'center' }}>
         <Paper sx={{ boxShadow: '2px 2px 3px #adadad' }}>
-          <Box p={5} sx={{ maxWidth: '450px' }}>
+          <Box p={4} sx={{ maxWidth: '450px' }}>
             <Typography variant="h5">Edit contact</Typography>
             <Formik
               initialValues={initialValue}

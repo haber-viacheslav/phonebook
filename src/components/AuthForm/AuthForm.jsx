@@ -18,7 +18,7 @@ export const AuthForm = () => {
   return (
     <Grid container sx={{ justifyContent: 'center', maxWidth: '500px' }}>
       <Paper sx={{ boxShadow: '2px 2px 3px #adadad' }}>
-        <Box p={5}>
+        <Box p={4}>
           <Typography variant="h3">Login</Typography>
           <Formik
             initialValues={initialValue}
