@@ -8,6 +8,8 @@
 > React-Parallax-Mouse, and React-Hot-Toast libraries are used for improving
 > user experience.
 
+## Libraries
+
 ## Installation
 
 To get started with the Phonebook project, follow these steps:
