@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/haber-viacheslav/phonebook/static/css/main.fd53a49b.css",
-    "main.js": "/haber-viacheslav/phonebook/static/js/main.a10d4273.js",
+    "main.js": "/haber-viacheslav/phonebook/static/js/main.cc467440.js",
     "static/js/444.ffea535a.chunk.js": "/haber-viacheslav/phonebook/static/js/444.ffea535a.chunk.js",
     "static/js/147.b4e8ff3b.chunk.js": "/haber-viacheslav/phonebook/static/js/147.b4e8ff3b.chunk.js",
     "static/js/537.13318c53.chunk.js": "/haber-viacheslav/phonebook/static/js/537.13318c53.chunk.js",
@@ -35,7 +35,7 @@
     "static/media/color-phone-3.png": "/haber-viacheslav/phonebook/static/media/color-phone-3.92b9a85f4795abbf932a.png",
     "index.html": "/haber-viacheslav/phonebook/index.html",
     "main.fd53a49b.css.map": "/haber-viacheslav/phonebook/static/css/main.fd53a49b.css.map",
-    "main.a10d4273.js.map": "/haber-viacheslav/phonebook/static/js/main.a10d4273.js.map",
+    "main.cc467440.js.map": "/haber-viacheslav/phonebook/static/js/main.cc467440.js.map",
     "444.ffea535a.chunk.js.map": "/haber-viacheslav/phonebook/static/js/444.ffea535a.chunk.js.map",
     "147.b4e8ff3b.chunk.js.map": "/haber-viacheslav/phonebook/static/js/147.b4e8ff3b.chunk.js.map",
     "537.13318c53.chunk.js.map": "/haber-viacheslav/phonebook/static/js/537.13318c53.chunk.js.map",
@@ -46,6 +46,6 @@
   },
   "entrypoints": [
     "static/css/main.fd53a49b.css",
-    "static/js/main.a10d4273.js"
+    "static/js/main.cc467440.js"
   ]
 }
