@@ -2,7 +2,7 @@
   "name": "phonebook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/haber-viacheslav/phonebook",
+  "homepage": "https://haber-viacheslav.github.io/phonebook",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
