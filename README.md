@@ -12,6 +12,23 @@
 
 ## Installation
 
+React: A JavaScript library for building user interfaces. Redux: A predictable
+state container for JavaScript apps. React Router: A library for routing and
+navigation in React applications. Emotion: A library for styling React
+components using CSS-in-JS. Material UI: A popular UI component library for
+React applications. Redux Toolkit: An official package from Redux that
+simplifies the process of writing Redux logic. Axios: A JavaScript library used
+for making HTTP requests. Formik: A library for building forms in React
+applications. Yup: A JavaScript schema validation library. react-icons: A
+library that provides a set of customizable icons for React applications.
+react-parallax-mouse: A library for creating parallax effects based on mouse
+movement. react-hot-toast: A library for displaying toast notifications in React
+applications. react-loader-spinner: A library for displaying loading spinners in
+React applications. react-redux: The official React bindings for Redux.
+react-router-dom: A routing library for React applications. prop-types: A
+library used for runtime type checking in React applications. redux-persist: A
+library for persisting and rehydrating Redux stores.
+
 To get started with the Phonebook project, follow these steps:
 
 1. Clone this repository to your local machine using git clone
