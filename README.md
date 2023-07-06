@@ -1,7 +1,7 @@
-# Contacts Book
+# Phonebook
 
-> The "Contacts Book" project is a web application for storing and managing a
-> list of contacts. It is built using React, Redux and React Router. Emotion and
+> The "Phonebook" project is a web application for storing and managing a list
+> of contacts. It is built using React, Redux and React Router. Emotion and
 > Material UI libraries are used for styling. Redux Toolkit is used for data
 > handling and state management. Axios library is used for API communication.
 > Yup, yup-phone libraries are used for form validation. React-Icons,
@@ -10,17 +10,17 @@
 
 ## Installation
 
-To get started with the Contacts Book project, follow these steps:
+To get started with the Phonebook project, follow these steps:
 
 1. Clone this repository to your local machine using git clone
    https://github.com/haber-viacheslav/phonebook.git
-2. Navigate to the project directory using cd goit-react-hw-08-phonebook
+2. Navigate to the project directory using cd phonebook
 3. Install the necessary dependencies using npm install
 4. Start the development server using npm start
 
 ## Usage
 
-> Once the development server is running, you can access the Contacts Book
+> Once the development server is running, you can access the Phonebook
 > application by navigating to [http://localhost:3000](http://localhost:3000) in
 > your web browser. From there, you can add, edit, and delete contacts as
 > needed.
